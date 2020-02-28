@@ -27,6 +27,7 @@ dist
 .project
 .settings
 .tmproj
+*iml
 Thumbs.db
 
 # Folders to ignore

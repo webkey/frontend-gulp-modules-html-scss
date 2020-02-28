@@ -14,12 +14,11 @@ app.common = {
 		body.appendChild(script);
 	},
 	addStyleFile(nameFile) {
-		const head = document.getElementsByTagName('head')[0];
 		const appCss = document.getElementById('app-css');
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.href = `${app.pathToLibsFiles}/css/${nameFile}.css`;
-		head.before(link, appCss);
+		appCss.before(link);
 	},
 	initScript(nameFile, nameLib, callback) {
 		let hasLibs = null;
