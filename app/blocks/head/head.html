@@ -10,7 +10,6 @@
 	<meta name="HandheldFriendly" content="True">
 	<meta name="format-detection" content="telephone=no">
 	<meta name="format-detection" content="address=no">
-	<meta name="google" value="notranslate">
 	<link rel="apple-touch-icon" sizes="76x76" href="./favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
@@ -18,9 +17,18 @@
 	<meta name="theme-color" content="#ffffff">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<title>Page Title</title>
+	<title>@@if(context.title){@@title}@@if(!context.title){Page Title}</title>
 	<meta name="description" content="Description">
 	<meta name="keywords" content="">
 	<link id="app-css" rel="stylesheet" href="./assets/styles/app.min.css">
+	<script>
+		document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');
+		if (!("ontouchstart" in document.documentElement)) {
+			document.documentElement.className += " no-touchevents";
+		} else {
+			document.documentElement.className += " touchevents";
+		}
+	</script>
 </head>
 <body>
+<noscript><div class="no-js-warning">Для корректной работы сайта <b>включите JavaScript</b> в браузере</div></noscript>

@@ -1,12 +1,19 @@
 // Reset
 // ==========================================================================
 // Reset default styles.
+// Add border box sizing in all browsers (opinionated).
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
 * {
 	// @stylint ignore
 	margin: 0;
 	padding: 0;
 	font: inherit;
-	box-sizing: border-box;
 }
 
 // HTML5 display definitions
@@ -57,6 +64,7 @@ template {
 // 2. Prevent iOS text size adjust after orientation change, without disabling user zoom.
 // 3. Remove highlite on mobile devices.
 // 4. Set default cursor.
+// 5. Breaks words to prevent overflow in all browsers (opinionated).
 html {
 	font-family: sans-serif; // 1
 	-ms-text-size-adjust: 100%; // 2
@@ -64,7 +72,9 @@ html {
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 3
 	-webkit-focus-ring-color: rgba(255, 255, 255, 0); // 3
 	cursor: default;
+	word-break: break-word; // 5
 } // 4
+
 // Set 100% line-height
 body {
 	font-size: 100%;
@@ -130,6 +140,14 @@ svg:not(:root) {
 button,
 input {
 	line-height: normal;
+}
+
+// Remove the margin on controls in Safari.
+
+button,
+input,
+select {
+	margin: 0;
 }
 
 // Address inconsistent `text-transform` inheritance for `button` and `select`.
@@ -233,4 +251,31 @@ textarea {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+// Reset form input styles for iOS
+button,
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+input[type="number"],
+input[type="range"] {
+	appearance: none;
+	border-radius: 0;
+
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+	}
+}
+
+// Remove border from iframe
+iframe {
+	border: none;
 }
